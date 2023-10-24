@@ -1,0 +1,134 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Blast Hub [Prison Escape V2]", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+--[[
+Name = <string> - The name of the UI.
+HidePremium = <bool> - Whether or not the user details shows Premium status or not.
+SaveConfig = <bool> - Toggles the config saving in the UI.
+ConfigFolder = <string> - The name of the folder where the configs are saved.
+IntroEnabled = <bool> - Whether or not to show the intro animation.
+IntroText = <string> - Text to show in the intro animation.
+IntroIcon = <string> - URL to the image you want to use in the intro animation.
+Icon = <string> - URL to the image you want displayed on the window.
+CloseCallback = <function> - Function to execute when the window is closed.
+]]
+
+
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+Tab:AddToggle({
+	Name = "Inf Escape",
+	Default = false,
+	Callback = function(Value)
+		  getgenv(). Upd = Value
+		
+		while getgenv(). Upd do
+		game:GetService("ReplicatedStorage").TeamChange:FireServer("Criminal")
+		wait(0.0001)
+		end
+	    end    
+})
+
+
+local Tab = Window:MakeTab({
+	Name = "Teams",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+Tab:AddButton({
+	Name = "Inmate",
+	Callback = function()
+            game:GetService("ReplicatedStorage").TeamChange:FireServer("prisoner")
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "Guard",
+	Callback = function()
+      	  game:GetService("ReplicatedStorage").TeamChange:FireServer("guard")
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "Criminal",
+	Callback = function()
+      	  game:GetService("ReplicatedStorage").TeamChange:FireServer("Criminal")
+  	end    
+})
+
+
+local Tab = Window:MakeTab({
+	Name = "Teleport",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+Tab:AddButton({
+	Name = "Police Base",
+	Callback = function()
+      		local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(-17.795209884643555, 78.7499771118164, 117.37631225585938)
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "Inmate Base",
+	Callback = function()
+      		local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(39.757259368896484, 78.7498779296875, 75.36808013916016)
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "Criminal Base",
+	Callback = function()
+      		local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(-1.9256399869918823, 75.75003051757812, 1005.9232788085938)
+  	end    
+})
+
+
+local Tab = Window:MakeTab({
+	Name = "Guns And Armor",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+Tab:AddButton({
+	Name = "Police Guns And Armor",
+	Callback = function()
+      		local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(-8.430010795593262, 78.84391021728516, 153.39698791503906)
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "Criminal Guns And Armor",
+	Callback = function()
+      		local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(4.1110310554504395, 75.75003051757812, 981.0415649414062)
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "Alien Gun And Armor",
+	Callback = function()
+      		local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(-915.65234375, 18.15006446838379, -362.7780456542969)
+  	end    
+})
